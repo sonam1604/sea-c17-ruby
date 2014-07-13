@@ -10,14 +10,8 @@
 # Chapter 2:  Numbers                        page  9
 # Chapter 3:  Letters                        page 13
 
-line_width = 50
-puts ('Table of Contents'.center(line_width))
-puts ('Chapter 1:'.ljust(line_width) ) + ('Getting Started'.ljust(line_width)) + ('Page 1'.ljust(line_width))
-puts ('Chapter 2:'.ljust(line_width) ) + ('Numbers'.ljust(line_width)) + ('Page 9'.ljust(line_width))
-puts ('Chapter 3:'.ljust(line_width) ) + ('Letters'.ljust(line_width)) + ('Page 13'.ljust(line_width))
-
-# Another way not sure if this is how the output was expected or teh abov format  
-puts ('Table of Contents'.center(line_width))
-puts ('Chapter 1:'.ljust(line_width) ) + ('Getting Started'.center(line_width)) + ('Page 1'.rjust(line_width))
-puts ('Chapter 2:'.ljust(line_width) ) + ('Numbers'.center(line_width)) + ('Page 9'.rjust(line_width))
-puts ('Chapter 3:'.ljust(line_width) ) + ('Letters'.center(line_width)) + ('Page 13'.rjust(line_width))
+puts 'Table of Contents'.center(50)
+puts
+puts 'Chapter 1:  Getting Started'.ljust(30) + 'page  1'.rjust(20)
+puts 'Chapter 2:  Numbers'.ljust(30)         + 'page  9'.rjust(20)
+puts 'Chapter 3:  Letters'.ljust(30)         + 'page 13'.rjust(20)

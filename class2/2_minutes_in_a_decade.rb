@@ -4,4 +4,4 @@
 
 # In a decade there are 8 Non Leap and 2 Leap Years
 
-puts (8 * (365 * (24*60))) + (2 * (366 * (24 * 60)))
+puts (8 * 365 * 24 * 60) + (2 * 366 * 24 * 60)
