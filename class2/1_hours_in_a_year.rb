@@ -3,7 +3,7 @@
 # How many hours are in a year?
 
 # For Non Leap year
-puts (365 * 24)
+puts 365 * 24
 
 # For Leap year
-puts (366 * 24)
+puts 366 * 24
