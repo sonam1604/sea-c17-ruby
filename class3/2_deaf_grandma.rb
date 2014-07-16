@@ -26,3 +26,17 @@
 # Hint 3: People often ask me, “How can I make rand give me a number in a range
 # not starting at zero?” But you don’t need it to. Is there something you could
 # do to the number rand returns to you?
+
+input = gets.chomp
+while input!= "BYE"
+  number = rand(1950)
+  while number < 1930
+  number = rand(1950)
+  end
+  if input == input.upcase
+    puts "No, NOT SINCE #{number}"
+  else
+    puts "HUH?! SPEAK UP, SONNY!"
+  end
+  input =gets.chomp
+end
