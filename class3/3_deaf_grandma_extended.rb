@@ -14,7 +14,7 @@ while count < 3
     number = rand(1950)
   end
   if input!= "BYE"
-    count =0
+    count = 0
     if input == input.upcase
       puts "No, NOT SINCE #{number}"
     else
