@@ -9,10 +9,10 @@ start=gets.chomp.to_i
 puts "Ending Year:"
 stop= gets.chomp.to_i
 puts "Leap Years:"
-while start!=stop + 1
-	if start % 4 == 0 || (start % 100 == 0 && start % 400 == 0)
+while start <= stop
+	if start % 4 == 0 && (start % 100 != 0 || start % 400 == 0)
 		puts start
 	else
-    end     
+    end
  start=start+1
 end

@@ -7,23 +7,33 @@
 # BYE three times but not in a row, you should still be talking to Grandma.
 
 count = 0
+
 while count < 3
   input = gets.chomp
+<<<<<<< HEAD
   number = rand(1950)
   while number < 1930
     number = rand(1950)
   end
   if input!= "BYE"
     count = 0
+=======
+  number = rand(21) + 1930
+
+  if input != "BYE"
+    count = 0
+
+>>>>>>> ebbe16b22058e759795e8d139d9e02c23bd7668e
     if input == input.upcase
-      puts "No, NOT SINCE #{number}"
+      puts "NO, NOT SINCE #{number}!"
     else
       puts "HUH?! SPEAK UP, SONNY!"
     end
   else
     count = count + 1
+
     if count <= 2
-      puts "No, NOT SINCE #{number}"
+      puts "NO, NOT SINCE #{number}!"
     end
   end
 end
