@@ -16,11 +16,6 @@ puts
 
 while start_year <= end_year
   if start_year % 4 == 0 && (start_year % 100 != 0 || start_year % 400 == 0)
-    puts start_year % 4 == 0
-    puts start_year % 100 == 0
-    puts start_year % 400 == 0
-    puts (start_year % 100 != 0 || start_year % 400 == 0)
-    puts start_year % 4 == 0 && (start_year % 100 != 0 || start_year % 400 == 0)
     puts start_year
   end
 
