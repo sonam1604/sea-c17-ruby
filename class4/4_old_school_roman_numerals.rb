@@ -78,6 +78,7 @@ def calculate(num, divisor)
   elsif divisor == 500
     roman_1 = "D" * quotient
 
+
   elsif divisor == 100
     roman_1 = "C" * quotient
 
