@@ -11,28 +11,21 @@
 # Hint: I've already structured your program. Aren't you lucky? :)
 
 def ask(question)
-  # your solution here
-  while true
+  loop do
+    puts question
+    reply = gets.chomp.downcase
 
-      puts question
-      reply = gets.chomp.downcase
+    return true if reply == "yes"
+    return false if reply == "no"
 
-      if reply == "yes"
-        return true
-      end
-
-      if reply == "no"
-        return false
-      end
-
-      puts 'Please answer "yes" or "no" '
+    puts 'Please answer "yes" or "no".'
   end
 end
 
-  puts ask('Do you like eating tacos?')
-  puts ask('Do you like eating burritos?')
-  puts ask('Do you wet the bed?')
-  puts ask('Do you like eating chimichangas?')
-  puts ask('Do you like eating sopapillas?')
-  puts ask('Do you like drinking horchata?')
-  puts ask('Do you like eating flautas?')
+puts ask('Do you like eating tacos?')
+# puts ask('Do you like eating burritos?')
+# puts ask('Do you wet the bed?')
+# puts ask('Do you like eating chimichangas?')
+# puts ask('Do you like eating sopapillas?')
+# puts ask('Do you like drinking horchata?')
+# puts ask('Do you like eating flautas?')

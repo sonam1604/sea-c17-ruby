@@ -14,24 +14,17 @@
 # Chapter 2:  Numbers                        page  9
 # Chapter 3:  Letters                        page 13
 
-  header = "Table of Contents"
+header = "Table of Contents"
 
-  content_1 = "Chapter 1:  Getting Started"
-  content_2 = "Chapter 2:  Numbers"
-  content_3 = "Chapter 3:  Letters"
+chapters = [
+  ["Chapter 1:  Getting Started", "page  1"],
+  ["Chapter 2:  Numbers", "page  9"],
+  ["Chapter 3:  Letters", "page 13"]
+]
 
-  page_1 = "page 1"
-  page_2 = "page 9"
-  page_3 = "page 13"
+puts header.center(50)
+puts
 
-  tables = [content_1, page_1, content_2, page_2, content_3, page_3]
-  i = 0
-
-  puts header.center(50)
-  puts ""
-
-  loop do
-      break if i > 5
-      puts tables[i].ljust(30) + tables[i+1].rjust(20)
-      i = i + 2
-  end
+chapters.each do |chapter|
+  puts chapter.first.ljust(30) + chapter.last.rjust(20)
+end
