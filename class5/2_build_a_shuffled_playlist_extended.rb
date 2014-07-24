@@ -64,3 +64,57 @@
 #           for writing.
 
 # your code here
+
+def shuffle(songs_list,file_name)
+  length = songs_list.length
+  shuffle_name = []
+  i = 0
+  j = 0
+  mode = ""
+  while j < length
+    i = rand(16)
+    if songs_list[i]!= 'used'
+      shuffle_name.push (songs_list[i])
+      songs_list[i] = 'used'
+      j = j + 1
+    end
+  end
+
+  puts "Build a shuffled playlist"
+
+  if File.exists?(file_name)
+    puts "Warning: #{file_name} already exists"
+    print "(c)ancel,(o)verwrite,or (a)ppend >"
+
+    option = STDIN.gets.chomp
+
+    if option == "c"
+      puts "cancelled"
+      exit
+    end
+    if option == "a"
+      File.open(file_name, 'a') {|f| f.puts(shuffle_name)}
+      puts "Appended #{file_name} with 16 songs"
+    end
+    if option == "o"
+      File.open(file_name, 'w') {|f| f.puts(shuffle_name)}
+      puts "Overwrote #{file_name} with 16 songs"
+    end
+  else
+    File.open(file_name, 'w') do |f|
+    f.puts shuffle_name
+    end
+    puts "Created #{file_name} with 16 songs"
+  end
+end
+
+input = ARGV[0].to_s
+
+if input == ""
+  puts "Usage: 2_build_a_shuffled_playlist_extended.rb PLAYLIST"
+  exit
+end
+
+input = input + ".m3u" unless input.end_with?(".m3u")
+songs_name = Dir["**/*.{mp3,m4a}"]
+shuffle(songs_name,input)
