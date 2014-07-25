@@ -51,3 +51,11 @@
 #
 #     Daylight Savings begins at 2:00am on the second Sunday in March and
 #     reverts to standard time on the first Sunday in November.
+
+# Working Code
+time = Time.new(1985, 04, 16, 8, 45, 0, "-07:00")
+puts "I was born on #{time}"
+new_time = time + 1000000000
+puts "And I turn one billion seconds old on #{new_time}"
+
+
