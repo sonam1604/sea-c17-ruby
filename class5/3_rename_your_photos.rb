@@ -45,24 +45,21 @@
 
 require "fileutils"
 
-# your code here
-source_path = ARGV[0].to_s
-target_path = ARGV[1].to_s
-count = 0
+source_path = ARGV[0]
+target_path = ARGV[1]
 
-if target_path == "" || source_path == ""
+unless target_path && source_path
   puts "Usage: 3_rename_your_photos.rb SOURCE TARGET"
   exit
 end
 
-pics_names = Dir["#{source_path}/**/*.jpg"]
+pics_names = Dir["#{source_path}/*.jpg"]
 
 pics_names.each do |pic|
   pic_size = File.size?(pic)
-  pic_base = File.basename(pic,'.jpg')
+  pic_base = File.basename(pic, '.jpg')
   new_name = "#{target_path}/#{pic_base}_#{pic_size}.jpg"
-  FileUtils.copy_file(pic,new_name)
-  count = count + 1
+  FileUtils.copy_file(pic, new_name)
 end
 
-puts "Copied #{count} photos from source to target"
+puts "Copied #{pics_names.size} photos from source to target"
