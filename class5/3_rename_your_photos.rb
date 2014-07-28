@@ -44,8 +44,8 @@
 #     be a file path.
 
 require "fileutils"
-
 # your code here
+
 source_path = ARGV[0].to_s
 target_path = ARGV[1].to_s
 count = 0

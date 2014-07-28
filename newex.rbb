@@ -1,0 +1,5 @@
+date1 = Time.new.utc(1985,04,16,9,43)
+date2 = Time.new.utc.strftime("%F")
+
+date1 = date1.strftime("%F")
+puts date2 - date1
