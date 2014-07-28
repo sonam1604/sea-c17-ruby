@@ -53,4 +53,37 @@ if name.nil?
   exit
 end
 
+hash_table = {}
+count = 0
+
+read_string = File.read('class6/birth_dates.yml')
+hash_table =  YAML.load(read_string)
+
+hash_table.each do |key ,date|
+
+  count = count + 1
+  if name.capitalize == key
+    month = date.month
+    #current_time = Time.new.utc
+    #current_month = Time.new.utc.month
+     if (Time.new.utc.month >= date.month)
+      year = (Time.new.utc.year + 1)
+    else
+      year = Time.new.utc.year
+    end
+
+    age =  year - date.year
+    birth_date = Time.new(year, date.month, date.day).utc
+    birth_date = birth_date.strftime("%F")
+    puts "#{name.capitalize} will be #{age} on #{birth_date}"
+    exit
+  end
+
+  puts "Unknown birth date for '#{name.capitalize}'"  if count == hash_table.length()
+end
+
+
+
+
 # your code here
+

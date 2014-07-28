@@ -59,8 +59,6 @@
 #     hi
 #     hi
 
-# Working Code
-
 year = ARGV[0].to_i
 month = ARGV[1].to_i
 day = ARGV[2].to_i
@@ -71,10 +69,12 @@ if year == 0 || month == 0 || day == 0
 end
 
 # your code here
+
 birth_time = Time.utc(year, month, day)
 puts "The birth date is #{birth_time}"
 t = Time.new
 current_time = t.utc
+
 if current_time.month > birth_time.month
   count = current_time.year - birth_time.year
   count.times {puts "CHEER"}
