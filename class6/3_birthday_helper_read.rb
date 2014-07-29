@@ -74,7 +74,7 @@ hash_table.each do |key ,date|
     end
 
     age =  year - date.year
-    birth_date = Time.new(year, date.month, date.day).utc
+    birth_date = Time.utc(year, date.month, date.day)
     birth_date = birth_date.strftime("%F")
     puts "#{newname} will be #{age} on #{birth_date}"
     exit

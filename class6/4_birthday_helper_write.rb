@@ -56,13 +56,13 @@ end
 # your code here
 file_path = "class6/birth_dates.yml"
 hash_table = {}
-#puts hash_table [name] = Time.new(year,month,day).utc
+hash_table = YAML.load_file(file_path)
 newname =name.capitalize
-birth_date = Time.new(year,month,day).utc
-wstring = YAML.dump({newname => birth_date})
-puts wstring
+birth_date = Time.utc(year,month,day)
+hash_table[newname] = birth_date
 
 File.open(file_path, "w") do |file|
-  file.write (wstring)
-  puts "Birthday #{birth_date} ssaved for #{name.capitalize}"
+  file.write (YAML.dump(hash_table))
+  puts "Birthday #{birth_date} saved for #{name.capitalize}"
 end
+
