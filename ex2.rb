@@ -1,24 +1,20 @@
-#puts Dir['*.{JPG,jpg}']
-puts Dir['*.{JPG,jpg}']
-pic_names = Dir['*.{JPG,jpg}']
-#puts Dir['**/*.{JPG,jpg}']
-puts 'Name:'
-name = gets.chomp
-puts
-print "Downloading #{pic_names.length} files"
-pic_number = 1
-pic_names.each do |pic|
-  print "."
-  new_name = if pic_number < 10
-    "#{name}0#{pic_number}.jpg"
-  else
-    "#{name}#{pic_number}.jpg"
+class Orange
+    def initialize(amount = 50)
+      @fruit = amount
+      puts @fruit
+    end
+    def fruit
+      puts @fruit
+    end
+    def pick!(amount = 1)
+    if @fruit > amount
+      @fruit = @fruit - amount
+    end
+    end
+    def Orange(other)
+      Orange.fruit == other.fruit
+      end
   end
-  File.rename pic, new_name
-  pic_number = pic_number + 1
-end
-puts #
-puts "Done"
-puts Dir['*.{JPG,jpg}']
 
+  Orange.new == Orange.new(50)
 
