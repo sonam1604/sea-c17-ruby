@@ -57,7 +57,7 @@ class OrangeTree
     end
   end
 
-  def == (other)
+  def ==(other)
     self.fruit == other.fruit
   end
 #End of code

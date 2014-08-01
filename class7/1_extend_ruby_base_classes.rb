@@ -78,7 +78,15 @@ puts "foo".indent(3) == "   foo"
 class Integer
   def to_roman
     # your code here
-    hash_table = {1000=>"M",900=>"CM",400=>"CD",90=>"XC",40=>"XL",9=>"IX",4=>"IV"}
+    hash_table = {
+      1000=>"M",
+      900=>"CM",
+      400=>"CD",
+      90=>"XC",
+      40=>"XL",
+      9=>"IX",
+      4=>"IV",
+    }
     result = ""
     input = self
 
