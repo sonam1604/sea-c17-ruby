@@ -57,8 +57,7 @@
 
 class Integer
   def hours_in_seconds
-    # your code here
-    self * (60 * 60)
+    self * 60 * 60
   end
 end
 
@@ -66,9 +65,7 @@ puts 10.hours_in_seconds == 36000
 
 class String
   def indent(amount = 2)
-    # your code here
-    (" " * amount) + self
-
+    " " * amount + self
   end
 end
 
@@ -77,16 +74,22 @@ puts "foo".indent(3) == "   foo"
 
 class Integer
   def to_roman
-    # your code here
     hash_table = {
-      1000=>"M",
-      900=>"CM",
-      400=>"CD",
-      90=>"XC",
-      40=>"XL",
-      9=>"IX",
-      4=>"IV",
+      1000 => "M",
+      900  => "CM",
+      500  => "D",
+      400  => "CD",
+      100  => "C",
+      90   => "XC",
+      50   => "L",
+      40   => "XL",
+      10   => "X",
+      9    => "IX",
+      5    => "V",
+      4    => "IV",
+      1    => "I"
     }
+
     result = ""
     input = self
 
@@ -97,6 +100,7 @@ class Integer
         input %= key
       end
     end
+
     result
   end
 end
@@ -106,17 +110,14 @@ puts 444.to_roman == "CDXLIV"
 
 class Array
   def second
-    # your code here
     self[1]
   end
 
   def third
-    # your code here
     self[2]
   end
 
   def fourth
-    # your code here
     self[3]
   end
 end
