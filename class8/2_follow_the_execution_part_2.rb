@@ -16,8 +16,14 @@
 
 def follow_the_execution(method_param, &block)
   # your code here
+  puts "Executing the method"
+  puts "method_param is #{method_param}"
+  block.call
+  #end of code
 end
 
 follow_the_execution("dinner") do
   # your code here
+  puts "Executing the block"
+  #end of code
 end

@@ -19,8 +19,17 @@
 
 def follow_the_execution(method_param1, method_param2, &block)
   # your code here
+  puts "Executing the method"
+  puts "method_param1 is #{method_param1}"
+  puts "method_param2 is #{method_param2}"
+  block.call("lunch","tacos")
+  #end of code
 end
 
 follow_the_execution("dinner", "soup") do |block_param1, block_param2|
   # your code here
+  puts "Executing the block"
+  puts "block_param1 is #{block_param1}"
+  puts "block_param2 is #{block_param2}"
+  #end of code
 end

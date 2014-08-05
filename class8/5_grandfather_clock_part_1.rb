@@ -23,6 +23,20 @@
 # the program uses a number that appears on a clock-face. (i.e. 1 to 12)
 
 # your code here
+def grandfather_clock(&block)
+  current_time = Time.new.hour
+  if current_time == 0
+    current_time = 12
+  end
+  if current_time >= 13 && current_time <=23
+    current_time -= 12
+  end
+  puts "The hour is #{current_time}"
+  current_time.times do
+    block.call
+  end
+end
+#end of code
 
 grandfather_clock do
   puts "DONG!"

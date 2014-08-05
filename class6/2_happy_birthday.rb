@@ -75,7 +75,7 @@ puts "The birth date is #{birth_time}"
 t = Time.new
 current_time = t.utc
 
-if current_time.month > birth_time.month
+if current_time.month >= birth_time.month
   count = current_time.year - birth_time.year
   count.times {puts "CHEER"}
 else
