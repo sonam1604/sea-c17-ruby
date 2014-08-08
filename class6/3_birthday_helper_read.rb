@@ -48,43 +48,21 @@ require 'yaml'
 
 name = ARGV.first
 
-if name.nil?
-  puts "Usage: 3_birthday_helper_read.rb NAME"
-  exit
-end
+abort "Usage: 3_birthday_helper_read.rb NAME" unless name
 
-hash_table = {}
-count = 0
+birth_dates = YAML.load(File.read('birth_dates.yml'))
 
-read_string = File.read('class6/birth_dates.yml')
-hash_table =  YAML.load(read_string)
-newname = name.capitalize
+name = name.capitalize
+bd = birth_dates[name]
 
-hash_table.each do |key ,date|
+abort "Unknown birth date for '#{name}'" unless bd
 
-  count = count + 1
-  if newname == key
-    month = date.month
-    #current_time = Time.new.utc
-    #current_month = Time.new.utc.month
-     if (Time.new.utc.month >= date.month)
-      year = (Time.new.utc.year + 1)
-    else
-      year = Time.new.utc.year
-    end
+now = Time.new.utc
+year = now.year
 
-    age =  year - date.year
-    birth_date = Time.utc(year, date.month, date.day)
-    birth_date = birth_date.strftime("%F")
-    puts "#{newname} will be #{age} on #{birth_date}"
-    exit
-  end
+year += 1 if now.month > bd.month || (now.month == bd.month && now.day > bd.day)
 
-puts "Unknown birth date for '#{newname}'" if count == hash_table.length()
-end
+age = year - bd.year
+nbd = Time.utc(year, bd.month, bd.day)
 
-
-
-
-# your code here
-
+puts "#{name} will be #{age} on #{nbd.strftime("%F")}"

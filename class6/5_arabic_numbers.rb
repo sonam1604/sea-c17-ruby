@@ -7,17 +7,17 @@
 #
 # For example:
 #
-#   $ ruby 5_arabic_numbers.rb mcmxcix
+#   $ ruby 4_arabic_numbers.rb mcmxcix
 #   1999
 #
 # The program should handle both lowercase and uppercase roman numerals:
 #
-#   $ ruby 5_arabic_numbers.rb CDXLIV
+#   $ ruby 4_arabic_numbers.rb CDXLIV
 #   444
 #
 # And reject strings that aren’t valid Roman numerals:
 #
-#   $ ruby 5_arabic_numbers.rb bigboi
+#   $ ruby 4_arabic_numbers.rb bigboi
 #   Invalid roman numeral 'bigboi'
 #
 # HINT: Draw first, program second. Ask yourself the following questions:
@@ -72,7 +72,7 @@
 #
 #     Returns a substring containing characters starting and finishing at the
 #     Range's min and max.
-#/
+#
 #     "hello"[0..0]   #=> "h"
 #     "hello"[0..1]   #=> "he"
 #     "hello"[0..2]   #=> "hel"
@@ -88,33 +88,39 @@
 #     "a".empty?  #=> false
 
 def arabic_number(num)
-  # your code here
+  roman_to_arabic = {
+    "M"  => 1000,
+    "CM" => 900,
+    "D"  => 500,
+    "CD" => 400,
+    "C"  => 100,
+    "XC" => 90,
+    "L"  => 50,
+    "XL" => 40,
+    "X"  => 10,
+    "IX" => 9,
+    "V"  => 5,
+    "IV" => 4,
+    "I"  => 1
+  }
 
-hash_table = {}
-count =0
-result = 0
-  {"M"=>1000,"CM"=>900,"D"=>500,"CD"=>400,"C"=>100,"XC"=>90,"L"=>50,
-   "XL"=>40,"X"=>10,"IX"=>9,"V"=>5,"IV"=>4,"I"=>1}.each do |key, value|
-    hash_table[key] = value
+  original = num
+  num = num.upcase
+  result = 0
+
+  roman_to_arabic.each do |roman, arabic|
+    prefix = num.cut(roman)
+    next if prefix.empty?
+
+    result += arabic * prefix.size / roman.size
+
+    num = num[prefix.size..-1]
+    break if num.empty?
   end
 
-hash_table.each do |key, value|
+  abort "Invalid roman numeral '#{original}'" unless num.empty?
 
-  if count != (num.length)
-    num1 = num[count..num.length].cut(key)
-    if num1 != ""
-      length = num1.length
-      count =count + (num1.length)
-      if num1 == "CM" || num1 == "CD" || num1 == "XC" || num1 == "XL" ||
-         num1 == "IX" || num1 == "IV"
-        result += value
-      else
-        result += (value * length)
-      end
-    end
-  end
-end
-result
+  result
 end
 
 class String
@@ -125,13 +131,6 @@ end
 
 input = ARGV.first
 
-if input.nil?
-puts "Usage: 5_arabic_numbers.rb ROMAN NUMERAL"
-exit
-end
+abort "Usage: 4_arabic_numbers.rb ROMAN_NUMERAL" unless input
 
-if arabic_number(input.upcase) == 0
-  puts "Invalid roman numeral '#{input}'"
-else
-  puts arabic_number(input.upcase)
-end
+puts arabic_number(input)

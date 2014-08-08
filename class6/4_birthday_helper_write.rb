@@ -49,20 +49,16 @@ month = ARGV[2].to_i
 day = ARGV[3].to_i
 
 if name.nil? || year == 0 || month == 0 || day == 0
-  puts "Usage: 4_birthday_helper_write.rb NAME YEAR MONTH DAY"
-  exit
+  abort "Usage: 4_birthday_helper_write.rb NAME YEAR MONTH DAY"
 end
 
-# your code here
-file_path = "class6/birth_dates.yml"
-hash_table = {}
+file_path = "birth_dates.yml"
 hash_table = YAML.load_file(file_path)
-newname =name.capitalize
-birth_date = Time.utc(year,month,day)
+newname = name.capitalize
+birth_date = Time.utc(year, month, day)
 hash_table[newname] = birth_date
 
 File.open(file_path, "w") do |file|
-  file.write (YAML.dump(hash_table))
+  file.write YAML.dump(hash_table)
   puts "Birthday #{birth_date} saved for #{name.capitalize}"
 end
-
