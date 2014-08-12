@@ -39,28 +39,27 @@
 # should stop and rethink your approach.
 
 class OrangeTree
-  # your code here
   def initialize(fruit = 50)
     @fruit = 50
   end
 
   def fruit
-     @fruit
+    @fruit
+  end
+
+  def pick!(amount = 1)
+    return nil if fruit < amount
+    @fruit -= amount
   end
 
   def pick(amount = 1)
-    if @fruit >= amount
-      fruit = @fruit - amount
-      OrangeTree.new(fruit)
-    else
-      self
-    end
+    return self if fruit < amount
+    OrangeTree.new(@fruit - amount)
   end
 
   def ==(other)
-    self.fruit == other.fruit
+    fruit == other.fruit
   end
-#End of code
 end
 
 orange_tree = OrangeTree.new
